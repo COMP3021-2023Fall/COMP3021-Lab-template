@@ -26,7 +26,7 @@ group = "hk.ust.comp3021.lab"
 java {
     // Configures the *toolchain* (i.e. JDK) that is used by this project
     toolchain {
-        // We need a toolchain that supports Java 16
+        // We need a toolchain that supports Java 17
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
@@ -50,7 +50,7 @@ dependencies {
 // project
 tasks {
     // The two `withType` blocks below configures all tasks with the given type in the angle brackets (`<...>`)
-    // This is necessary to enable preview features for Java 16
+    // This is necessary to enable preview features for Java 17
     withType<JavaCompile> {
         options.compilerArgs = listOf("--enable-preview")
     }
@@ -60,7 +60,7 @@ tasks {
 
     // This block specifically configures the `test` task of Gradle
     //
-    // Like above, we need to enable preview features for Java 16
+    // Like above, we need to enable preview features for Java 17
     getByName<Test>("test") {
         // By default, Gradle tests projects using JUnit 4
         // In this course we are using JUnit 5, so this line tells Gradle to use that instead
