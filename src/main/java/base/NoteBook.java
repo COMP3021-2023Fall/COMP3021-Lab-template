@@ -1,6 +1,7 @@
 package base;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class NoteBook {
     private ArrayList<Folder> folders;
@@ -16,7 +17,7 @@ public class NoteBook {
     public boolean insertNote(String folderName, Note note) {
         Folder folder = null;
         for (Folder f : this.folders)
-            if (f.getName() == folderName)
+            if (Objects.equals(f.getName(), folderName))
                 folder = f;
         if (folder == null) {
             folder = new Folder(folderName);
