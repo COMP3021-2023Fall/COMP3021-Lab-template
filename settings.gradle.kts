@@ -1,2 +1,2 @@
-rootProject.name = "COMP3021-Lab-template"
+rootProject.name = "comp3021lab"
 
