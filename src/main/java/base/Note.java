@@ -32,7 +32,7 @@ public class Note implements Comparable<Note> {
 
     @Override
     public int compareTo(Note o) {
-        return o.title.compareTo(this.title);
+        return o.date.compareTo(this.date);
     }
 
     @Override
