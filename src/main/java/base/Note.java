@@ -1,15 +1,14 @@
 package base;
 
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
-public class Note {
+public class Note implements Comparable<Note> {
     private Date date;
     private String title;
 
     public Note (String title) {
         this.title = title;
-        this.date = new Date();
+        this.date = new Date(System.currentTimeMillis());
     }
 
     public String getTitle() {
@@ -21,7 +20,6 @@ public class Note {
     }
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Note note = (Note) o;
         return Objects.equals(title, note.title);
@@ -30,5 +28,15 @@ public class Note {
     @Override
     public int hashCode() {
         return Objects.hash(title);
+    }
+
+    @Override
+    public int compareTo(Note o) {
+        return o.title.compareTo(this.title);
+    }
+
+    @Override
+    public String toString() {
+        return date.toString() + "\t" + title;
     }
 }

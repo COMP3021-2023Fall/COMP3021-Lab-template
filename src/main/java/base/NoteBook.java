@@ -1,7 +1,6 @@
 package base;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
 public class NoteBook {
     private ArrayList<Folder> folders;
@@ -24,7 +23,7 @@ public class NoteBook {
             folders.add(folder);
         }
 
-        for (Note folderNote: folder.getNotes()){
+        for (Note folderNote : folder.getNotes()) {
             if (folderNote.equals(note)) {
                 System.out.println("Creating note " + note.getTitle() + " under folder " + folderName + " failed.");
                 return false;
@@ -38,8 +37,29 @@ public class NoteBook {
         TextNote note = new TextNote(title);
         return insertNote(folderName, note);
     }
+
+    public boolean createTextNote(String folderName, String title, String content) {
+        TextNote note = new TextNote(title, content);
+        return insertNote(folderName, note);
+    }
+
     public boolean createImageNote(String folderName, String title) {
         ImageNote note = new ImageNote(title);
         return insertNote(folderName, note);
+    }
+
+    public void sortFolders() {
+        for (Folder folder : folders) {
+            folder.sortNotes();
+        }
+        Collections.sort(folders);
+    }
+
+    public List<Note> searchNotes(String keywords) {
+        List<Note> filteredNotes = new ArrayList<>();
+        for (Folder folder : folders) {
+            filteredNotes.addAll(folder.searchNotes(keywords));
+        }
+        return filteredNotes;
     }
 }
