@@ -5,6 +5,7 @@ public class TextNote extends Note {
 
     public TextNote(String title) {
         super(title);
+        this.content = null;
     }
 
     public TextNote(String title, String content) {
@@ -14,5 +15,14 @@ public class TextNote extends Note {
 
     public String getContent() {
         return content;
+    }
+
+    @Override
+    public String toString() {
+        String s = super.toString();
+        if (this.content == null || !content.contains(".")) {
+            return s;
+        }
+        return s + "\t" + content.substring(0, Math.min(30, content.indexOf(".")));
     }
 }
