@@ -19,7 +19,7 @@ public class TextNote extends Note {
 
     @Override
     public String toString() {
-        String s = super.toString();
+        String s = "TextNote: " + super.toString();
         if (this.content == null || !content.contains(".")) {
             return s;
         }

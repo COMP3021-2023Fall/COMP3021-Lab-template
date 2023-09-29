@@ -48,6 +48,14 @@ public class NoteBook {
         return insertNote(folderName, note);
     }
 
+    public boolean createNote(String folderName, String title) {
+        return createImageNote(folderName, title);
+    }
+
+    public boolean createNote(String folderName, String title, String content) {
+        return createTextNote(folderName, title, content);
+    }
+
     public void sortFolders() {
         for (Folder folder : folders) {
             folder.sortNotes();

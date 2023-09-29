@@ -11,6 +11,6 @@ public class ImageNote extends Note {
 
     @Override
     public String toString() {
-        return super.toString() + "\t This is an image.";
+        return "ImageNote: " + super.toString();
     }
 }

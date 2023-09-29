@@ -1,5 +1,6 @@
 package base;
 
+import java.awt.*;
 import java.util.*;
 
 public class Note implements Comparable<Note> {
@@ -32,7 +33,9 @@ public class Note implements Comparable<Note> {
 
     @Override
     public int compareTo(Note o) {
-        return o.title.compareTo(this.title);
+        if (this instanceof TextNote && o instanceof ImageNote) return -1;
+        if (this instanceof ImageNote && o instanceof TextNote) return 1;
+        return this.title.compareTo(o.title);
     }
 
     @Override

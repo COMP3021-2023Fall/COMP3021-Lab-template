@@ -5,20 +5,24 @@ public class TestLab4 {
     public static void main(String args[]){
 
         NoteBook nb = new NoteBook();
-        nb.createTextNote("Java", "COMP3021 syllabus", "Be able to implement object-oriented concepts in Java.");
-        nb.createTextNote("Java", "course information", "Introduction to Java Programming. Fundamentals include language syntax, object-oriented programming, inheritance, interface, polymorphism, exception handling, multithreading and lambdas.");
-        nb.createTextNote("Lab", "Lab requirement","Each lab has 2 credits, 1 for attendance and the other is based the completeness of your lab.");
+        nb.createNote("Java", "COMP3021 syllabus", "Be able to implement object-oriented concepts in Java.");
+        nb.createNote("Java", "course information", "Introduction to Java Programming. Fundamentals include language syntax, object-oriented programming, inheritance, interface, polymorphism, exception handling, multithreading and lambdas.");
+        nb.createNote("Lab", "Lab requirement","Each lab has 2 credits, 1 for attendance and the other is based the completeness of your lab.");
 
-        nb.createImageNote("Course", "Time Tables");
-        nb.createImageNote("Assignment", "Assignment Lists");
-        nb.createImageNote("CSE", "Lab Session");
-        nb.createTextNote("Java", "marking scheme", "The quizzes and lab grades will be given based on your attendance in quizzes and lab, respectively.");
-        nb.createImageNote("Java", "java Attendance Checking");
-        nb.createTextNote("Assignment", "Assignment Topic", "Enrollment System.");
-        nb.createTextNote("Assignment", "Due Date", "Hand in Oct 13, 11:59 pm.");
-        nb.createTextNote("Assignment", "Total Weighting", "21% of the total course grade.");
-        nb.createTextNote("Assignment", "Submission", "Through Canvas. Compress only the src folder in the project directory as a zip file. Also, provide your Github repository link on the Canvas submission comment, as mentioned in lab assignments.");
-        nb.createTextNote("Assignment", "Guidelines", "Make sure to read the assignment document thoroughly. There are specific requirements and formats to be followed.");
+        nb.createNote("Course", "Time Tables");
+        nb.createNote("Assignment", "Assignment Lists");
+        nb.createNote("CSE", "Lab Session");
+        nb.createNote("Java", "marking scheme", "The quizzes and lab grades will be given based on your attendance in quizzes and lab, respectively.");
+        nb.createNote("Java", "java Attendance Checking");
+        nb.createTextNote("Assignment", "______ End of Announcement _______");
+        nb.createNote("Assignment", "Assignment Topic", "Enrollment System.");
+        nb.createNote("Assignment", "Assignment Topic icon");
+        nb.createNote("Assignment", "Due Date", "Hand in Oct 13, 11:59 pm.");
+        nb.createNote("Assignment", "Due Date icon");
+        nb.createNote("Assignment", "Total Weighting", "21% of the total course grade.");
+        nb.createNote("Assignment", "Submission", "Through Canvas. Compress only the src folder in the project directory as a zip file. Also, provide your Github repository link on the Canvas submission comment, as mentioned in lab assignments.");
+        nb.createNote("Assignment", "Guideline", "Make sure to read the assignment document thoroughly.");
+        nb.createTextNote("Assignment", "----------- Attention -----------");
 
 
         nb.sortFolders();
