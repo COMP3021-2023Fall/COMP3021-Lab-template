@@ -1,7 +1,7 @@
 package base;
 import java.util.List;
 
-public class testLab3 {
+public class TestLab3 {
 	public static void main(String args[]){
 
 		NoteBook nb = new NoteBook();

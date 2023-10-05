@@ -1,9 +1,9 @@
 package base;
 
-import java.awt.*;
+import java.io.Serializable;
 import java.util.*;
 
-public class Note implements Comparable<Note> {
+public class Note implements Comparable<Note>, Serializable {
     private Date date;
     private String title;
 
