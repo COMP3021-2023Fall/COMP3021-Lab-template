@@ -3,7 +3,7 @@ package base;
 import java.io.Serializable;
 import java.util.*;
 
-public class Folder implements Comparable<Folder>, Serializable {
+public class Folder implements Comparable<Folder>, Serializable, Cloneable {
     private ArrayList<Note> notes;
     private String name;
 
@@ -107,5 +107,22 @@ public class Folder implements Comparable<Folder>, Serializable {
     @Override
     public int compareTo(Folder o) {
         return name.compareTo(o.getName());
+    }
+
+    @Override
+    public Folder clone() {
+        try {
+            Folder clone = (Folder) super.clone();
+            clone.notes = new ArrayList<>();
+            for (Note note: notes) {
+                Note newNote;
+                if (note instanceof TextNote) newNote = new TextNote((TextNote) note);
+                else newNote = new ImageNote((ImageNote) note);
+                clone.notes.add(newNote);
+            }
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

@@ -12,6 +12,11 @@ public class Note implements Comparable<Note>, Serializable {
         this.date = new Date(System.currentTimeMillis());
     }
 
+    public Note (Note note) {
+        this.title = note.title;
+        this.date = note.date;
+    }
+
     public String getTitle() {
         return title;
     }

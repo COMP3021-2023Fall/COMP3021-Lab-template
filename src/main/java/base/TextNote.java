@@ -3,22 +3,27 @@ package base;
 import java.io.*;
 
 
-public class TextNote extends Note implements Serializable {
+public class TextNote extends Note implements Serializable, Iconifiable {
     private String content;
 
-    public TextNote(String title) {
+    public TextNote (String title) {
         super(title);
         this.content = null;
     }
 
-    public TextNote(File f) {
+    public TextNote (File f) {
         super(f.getName());
         this.content = getTextFromFile(f.getAbsolutePath());
     }
 
-    public TextNote(String title, String content) {
+    public TextNote (String title, String content) {
         super(title);
         this.content = content;
+    }
+
+    public TextNote (TextNote note) {
+        super(note);
+        this.content = note.content;
     }
 
     public String getContent() {
@@ -67,5 +72,17 @@ public class TextNote extends Note implements Serializable {
             return s;
         }
         return s + "\t" + content.substring(0, Math.min(30, content.indexOf(".")));
+    }
+
+    @Override
+    public void iconify() {
+        char firstCharacter = content.charAt(0);
+        if ('a' <= firstCharacter && firstCharacter <= 'z') {
+            content = new IconLowerCase(firstCharacter).base + content.substring(1);
+        } else if ('A' <= firstCharacter && firstCharacter <= 'Z') {
+            content = new IconUpperCase(firstCharacter).base + content.substring(1);
+        } else if ('0' <= firstCharacter && firstCharacter <= '9') {
+            content = new IconDigit(firstCharacter).base + content.substring(1);
+        }
     }
 }
